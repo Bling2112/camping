@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Plugin Android Gradle chính (phải tương thích với Gradle 8.x)
+        classpath 'com.android.tools.build:gradle:8.4.2'
+
+        // Plugin Google Services để Firebase hoạt động
+        classpath 'com.google.gms:google-services:4.4.2'
+
+        // (Không cần thêm classpath khác cho Kotlin hoặc Flutter ở đây)
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// ✅ Đặt build folder gọn gàng
+rootProject.buildDir = '../build'
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+
+    // Thêm đoạn này để đồng bộ compileSdkVersion giữa các module
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            project.android {
+                compileSdkVersion 34
+            }
+        }
+    }
+}
+
+// ✅ Task dọn dẹp build
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

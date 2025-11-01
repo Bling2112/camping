@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart'; // file này được tạo khi bạn chạy "flutterfire configure"
+import 'screens/auth/login_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const CampingApp());
+}
+
+class CampingApp extends StatelessWidget {
+  const CampingApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Hệ thống quản lý dịch vụ Camping',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.green,
+      ),
+      home: const LoginScreen(),
+    );
+  }
+}

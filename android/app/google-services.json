@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "380594257029",
+    "project_id": "campingapp-51367",
+    "storage_bucket": "campingapp-51367.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380594257029:android:2c9638f9ef699ffeac3dec",
+        "android_client_info": {
+          "package_name": "com.example.camping_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpEPoGgxzZYg7ACsH3RT7XBWAYARQunMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380594257029:android:59ae6bf4c8a7132dac3dec",
+        "android_client_info": {
+          "package_name": "com.example.campingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpEPoGgxzZYg7ACsH3RT7XBWAYARQunMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

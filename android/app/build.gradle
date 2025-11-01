@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'   // Plugin Google Services cho Firebase
+    id 'dev.flutter.flutter-gradle-plugin'
+}
+
+android {
+    namespace "com.example.camping_app"
+
+    // ⚙️ Sử dụng compileSdk và ndkVersion tương thích Firebase
+    compileSdk 34
+    ndkVersion "27.0.12077973"
+
+    defaultConfig {
+        // ⚠️ Application ID phải trùng với package name đăng ký trong Firebase
+        applicationId "com.example.camping_app"
+
+        // Firebase yêu cầu minSdk >= 23
+        minSdk 23
+        targetSdk 34
+
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // ⚙️ Tùy chọn biên dịch
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    buildTypes {
+        release {
+            // 🔐 Dùng keystore debug để chạy Firebase trong chế độ test
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+flutter {
+    source '../..'
+}
